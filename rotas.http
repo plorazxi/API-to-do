@@ -1,0 +1,42 @@
+### Pegar o token
+GET http://localhost:3000/cript
+Content-Type: application/json
+
+{
+    "user": "Paulo Loraschi",
+    "email": "paulo.ss.loraschi@gmail.com",
+    "senha": 123
+}
+
+### Verificar token
+GET http://localhost:3000/verify
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiUGF1bG8gTG9yYXNjaGkiLCJlbWFpbCI6InBhdWxvLnNzLmxvcmFzY2hpQGdtYWlsLmNvbSIsInNlbmhhIjoxMjMsImlhdCI6MTcyNzYwNjU3MCwiZXhwIjoxNzI3NjA2NjMwfQ.bUBbosC4lCvdvSCZozMAnQ0H-PuPie2hwKSrHb86YaE"
+}
+
+### Descodificar
+GET http://localhost:3000/descript
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiUGF1bG8gTG9yYXNjaGkiLCJlbWFpbCI6InBhdWxvLnNzLmxvcmFzY2hpQGdtYWlsLmNvbSIsInNlbmhhIjoxMjMsImlhdCI6MTcyNzYwNjU3MCwiZXhwIjoxNzI3NjA2NjMwfQ.bUBbosC4lCvdvSCZozMAnQ0H-PuPie2hwKSrHb86YaE"
+}
+
+### Criando um hash de uma senha
+GET http://localhost:3000/hash
+Content-Type: application/json
+
+{
+    "senha": "123"
+}
+
+### COmparando o hash
+GET http://localhost:3000/compare
+Content-Type: application/json
+
+{
+    "senha": "123",
+    "hash": "$2b$14$RAMdwcSb7aWXVEFvd6YQt.6KUpiHQPUwo2Fr1W4H4e1bps8MacZeu"
+}
