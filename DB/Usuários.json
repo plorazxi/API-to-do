@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "nome": "Alice Silva",
+        "email": "alice.silva@example.com",
+        "data_nascimento": "1990-05-15",
+        "senha": "$2b$11$Lt4jjIHQU9suBAm7PZpwbOmgn2S.nX.7hN70zZY3Mr8vMqsozsdti"
+    },
+    {
+        "id": 2,
+        "nome": "Bruno Oliveira",
+        "email": "bruno.oliveira@example.com",
+        "data_nascimento": "1985-09-20",
+        "senha": "$2b$10$RoLCpwvC2Dkle/bYPO3.8e8zZxYr.dKds0HmC1ZQ7Sy62ZZPwoeDS"
+    },
+    {
+        "id": 3,
+        "nome": "Carla Santos",
+        "email": "carla.santos@example.com",
+        "data_nascimento": "1992-11-30",
+        "senha": "$2b$14$P.YpL296ewNe34fkLDPlt.UY2x93Mzk.afeXQtpPBvnxunrArJ8.C"
+    },
+    {
+        "id": 4,
+        "nome": "Daniel Costa",
+        "email": "daniel.costa@example.com",
+        "data_nascimento": "1988-01-12",
+        "senha": "$2b$10$JWYMk6aE.12nHygZiHCM2.WUJiwnHQDtsh1ewVDR0QYsjczNfe9Ma"
+    },
+    {
+        "id": 5,
+        "nome": "Fernanda Almeida",
+        "email": "fernanda.almeida@example.com",
+        "data_nascimento": "1995-03-18",
+        "senha": "$2b$14$SMUPZr.6nDbZbygohXjt/..GwSkRMXNs1IX5awBJyIB5hfe6aXdbC"
+    },
+    {
+        "id": 6,
+        "nome": "Gustavo Pereira",
+        "email": "gustavo.pereira@example.com",
+        "data_nascimento": "1993-06-25",
+        "senha": "$2b$11$atMARqxHuN5wAP/8/SJvQ.tf3vTcbGHquK7gHiG1stht/LENGa3/."
+    },
+    {
+        "id": 7,
+        "nome": "Helena Lima",
+        "email": "helena.lima@example.com",
+        "data_nascimento": "1987-02-14",
+        "senha": "$2b$11$YTYCQyXSExuMBw1bkq78RO61id31S.vP4f6/h8WsVgekIGAtjgLvC"
+    },
+    {
+        "id": 8,
+        "nome": "Igor Rocha",
+        "email": "igor.rocha@example.com",
+        "data_nascimento": "1991-08-04",
+        "senha": "$2b$12$w2RsHYd9uOrfWWO2o2rQNe8.3imvmwR1owA6zLAZ.orwo9/6lOp.C"
+    },
+    {
+        "id": 9,
+        "nome": "Juliana Martins",
+        "email": "juliana.martins@example.com",
+        "data_nascimento": "1994-12-09",
+        "senha": "$2b$12$R4mkCCTv/n9y2tJqlFOD8OXiEyr5RpCvD5y1ZxyK.y6mMXW5wXaNi"
+    },
+    {
+        "id": 10,
+        "nome": "Lucas Ferreira",
+        "email": "lucas.ferreira@example.com",
+        "data_nascimento": "1989-10-22",
+        "senha": "$2b$11$4TmOEc22FrtVCU96R38HQe.i2foergB9176rWJ9jwxEh/MPNr4FIu" 
+    }
+]

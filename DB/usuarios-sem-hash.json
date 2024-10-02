@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "nome": "Alice Silva",
+        "email": "alice.silva@example.com",
+        "data_nascimento": "1990-05-15",
+        "senha": "senha123"
+    },
+    {
+        "id": 2,
+        "nome": "Bruno Oliveira",
+        "email": "bruno.oliveira@example.com",
+        "data_nascimento": "1985-09-20",
+        "senha": "bruno123"
+    },
+    {
+        "id": 3,
+        "nome": "Carla Santos",
+        "email": "carla.santos@example.com",
+        "data_nascimento": "1992-11-30",
+        "senha": "carla123"
+    },
+    {
+        "id": 4,
+        "nome": "Daniel Costa",
+        "email": "daniel.costa@example.com",
+        "data_nascimento": "1988-01-12",
+        "senha": "daniel123"
+    },
+    {
+        "id": 5,
+        "nome": "Fernanda Almeida",
+        "email": "fernanda.almeida@example.com",
+        "data_nascimento": "1995-03-18",
+        "senha": "fernanda123"
+    },
+    {
+        "id": 6,
+        "nome": "Gustavo Pereira",
+        "email": "gustavo.pereira@example.com",
+        "data_nascimento": "1993-06-25",
+        "senha": "gustavo123"
+    },
+    {
+        "id": 7,
+        "nome": "Helena Lima",
+        "email": "helena.lima@example.com",
+        "data_nascimento": "1987-02-14",
+        "senha": "helena123"
+    },
+    {
+        "id": 8,
+        "nome": "Igor Rocha",
+        "email": "igor.rocha@example.com",
+        "data_nascimento": "1991-08-04",
+        "senha": "igor123"
+    },
+    {
+        "id": 9,
+        "nome": "Juliana Martins",
+        "email": "juliana.martins@example.com",
+        "data_nascimento": "1994-12-09",
+        "senha": "juliana123"
+    },
+    {
+        "id": 10,
+        "nome": "Lucas Ferreira",
+        "email": "lucas.ferreira@example.com",
+        "data_nascimento": "1989-10-22",
+        "senha": "lucas123"
+    }
+]
