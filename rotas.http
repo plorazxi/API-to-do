@@ -31,10 +31,10 @@ Content-Type: application/json
 
 {
     "id": 10,
-        "nome": "Lucas Ferreira",
-        "email": "lucas.ferreira@example.com",
-        "data_nascimento": "1989-10-22",
-        "senha": "$2b$11$4TmOEc22FrtVCU96R38HQe.i2foergB9176rWJ9jwxEh/MPNr4FIu" 
+    "nome": "Paulo Loraschi",
+    "email": "paulo.ss.loraschi@gmail.com",
+    "data_nascimento": "2007-01-29",
+    "senha": "paulin123" 
 }
 
 ### Pegar o token
