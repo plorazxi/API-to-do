@@ -11,6 +11,8 @@ app.use(express.json());
 
 app.get('/login', (req, res) => login(req, res));
 
+app.post('/register', (req, res) => register(req, res));
+
 app.get('/cript', (req, res) => {
     res.send(jwt.sign(req.body, process.env.SECRETKEY,{ 
         algorithm: 'HS256',
