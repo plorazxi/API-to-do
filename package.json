@@ -4,7 +4,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "nodemon src/index.js",
-    "auth": "node src/auth.js"
+    "auth": "node src/auth.js",
+    "cript": "nodemon src/test_de_cript.js"
   },
   "keywords": [],
   "author": "",
