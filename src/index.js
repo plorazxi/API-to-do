@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bc = require('bcrypt');
 const { randomInt } = require('node:crypto');
-import { login, register } from './autenticacao.js';
+const { login, register } = require('./autenticacao.js');
 require('dotenv').config();
 
 const app = express();
