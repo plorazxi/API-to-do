@@ -2,12 +2,14 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bc = require('bcrypt');
 const { randomInt } = require('node:crypto');
-const { login, register } = require('./autenticacao.js');
+const { login, register } = require('./auth.js');
 require('dotenv').config();
 
 const app = express();
 
 app.use(express.json());
+
+app.get('/login', (req, res) => login(req, res));
 
 app.get('/cript', (req, res) => {
     res.send(jwt.sign(req.body, process.env.SECRETKEY,{ 

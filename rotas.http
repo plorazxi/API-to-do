@@ -1,3 +1,21 @@
+### Login com senha certa
+GET http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "fernanda.almeida@example.com",
+    "senha": "fernanda123"
+}
+
+### Login com senha errada
+GET http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "fernanda.almeida@example.com",
+    "senha": "fernanda1234"
+}
+
 ### Pegar o token
 GET http://localhost:3000/cript
 Content-Type: application/json
@@ -32,7 +50,7 @@ Content-Type: application/json
     "senha": "123"
 }
 
-### COmparando o hash
+### Comparando o hash
 GET http://localhost:3000/compare
 Content-Type: application/json
 
