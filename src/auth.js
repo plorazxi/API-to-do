@@ -8,9 +8,13 @@ const users = JSON.parse(fs.readFileSync('DB/users.json', 'utf-8'));
 async function login(req, res) {
     const email = req.body.email;
     const senha = req.body.senha;
-    const user = users.filter((user) => {
+    const result = users.filter((user) => {
         if(user.email==email) return user;
-    })[0];
+    });
+    if(result.length!=1) {
+        res.status(506).send({erro: "banco de dados com falhas"});
+    }
+    const user = result[0];
     if(await bc.compare(senha, user.senha)) {
         let payload = {
             nome: user.nome,
