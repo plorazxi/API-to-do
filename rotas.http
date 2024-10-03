@@ -1,4 +1,4 @@
-### Login com senha certa
+### Login correto
 GET http://localhost:3000/login
 Content-Type: application/json
 
@@ -14,6 +14,15 @@ Content-Type: application/json
 {
     "email": "fernanda.almeida@example.com",
     "senha": "fernanda1234"
+}
+
+### Login com email errado
+GET http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "fernanda.almeida@exampl.com",
+    "senha": "fernanda123"
 }
 
 ### Pegar o token
