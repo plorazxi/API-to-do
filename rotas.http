@@ -25,6 +25,18 @@ Content-Type: application/json
     "senha": "fernanda123"
 }
 
+### Cadastro
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "id": 10,
+        "nome": "Lucas Ferreira",
+        "email": "lucas.ferreira@example.com",
+        "data_nascimento": "1989-10-22",
+        "senha": "$2b$11$4TmOEc22FrtVCU96R38HQe.i2foergB9176rWJ9jwxEh/MPNr4FIu" 
+}
+
 ### Pegar o token
 GET http://localhost:3000/cript
 Content-Type: application/json

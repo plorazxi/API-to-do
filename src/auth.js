@@ -39,7 +39,19 @@ async function login(req, res) {
 }
 
 function register(req, res) {
-
+    const id = users.length + 1;
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const data_nascimento = req.body.data_nascimento;
+    const senha_hash = bc.hash(req.body.senha, randomInt(10, 16));
+    const cadastro = {
+        id: id,
+        nome: nome,
+        email: email,
+        data_nascimento: data_nascimento,
+        senha: senha_hash
+    }
+    console.log(cadastro);
 }
 
 module.exports = { login, register };
