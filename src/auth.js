@@ -41,6 +41,13 @@ async function login(req, res) {
 async function register(req, res) {
     const id = users.length + 1;
     const { nome, email, data_nascimento, senha } = req.body;
+    const ver_email = users.map((user) => {
+        if(user.email == email) return user;
+    });
+    if(ver_email.length != 0) {
+        res.status(401).send({erro: "email sendo utilizado"});
+        return ;
+    }
     const senha_hash = await bc.hash(senha, randomInt(10, 16));
     const cadastro = {
         id: id,
