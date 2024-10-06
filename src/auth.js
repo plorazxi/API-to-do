@@ -79,4 +79,51 @@ async function register(req, res) {
     });
 }
 
-module.exports = { login, register };
+async function mudar(req, res) {
+    const { tributo } = req.params;
+    const { nome, email, data_nascimento, senha } = req.body;
+    const result = users.filter((user) => {
+        if(tributo == 'email') {
+            if(user.nome == nome && user.data_nascimento == data_nascimento) return user;
+        } else {
+            if(user.email == email) return user;
+        }
+    });
+    if(result.length>1) {
+        res.status(506).send({erro: "banco de dados com falhas"});
+        return ;
+    } else if(result.length==0) {
+        res.status(404).send({erro: "usuário não encontrado"});
+        return ;
+    }
+    const index = result[0].id - 1;
+    if(tributo == 'senha') {
+        let hash = await bc.hash(senha, randomInt(10, 16));
+        users[index].senha = hash;
+    } else if(tributo == 'email') {
+        const ver_email = users.filter((user) => {
+            if(user.email == email) return user;
+        });
+        if(ver_email.length != 0) {
+            res.status(401).send({erro: "email sendo utilizado"});
+            return ;
+        } else {
+            users[index].email = email;
+        }
+    } else if(tributo == 'data_nascimento') {
+        users[index].data_nascimento = data_nascimento;
+    } else if(tributo == 'nome') {
+        users[index].nome = nome;
+    } else {
+        res.status(400).send({erro: "tributo irreconhecível"});
+    }
+    fs.writeFile('DB/users.json', JSON.stringify(users), (err) => {
+        if(err) {
+            res.status(506).send({erro: "banco de dados com falhas"});
+            return ;
+        }
+    });
+    res.send({msg: "banco de dados atualizado com sucesso"});
+}
+
+module.exports = { login, register, mudar };

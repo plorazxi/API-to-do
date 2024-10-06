@@ -25,13 +25,35 @@ Content-Type: application/json
     "senha": "fernanda123"
 }
 
-### Cadastro
+### Cadastro com sucesso
 POST http://localhost:3000/register
 Content-Type: application/json
 
 {
     "nome": "Paulo Loraschi",
     "email": "paulo.ss.loraschi@gmail.com",
+    "data_nascimento": "2007-01-29",
+    "senha": "paulin123" 
+}
+
+### Cadastro com email sendo utilizado
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "nome": "Paulo Loraschi",
+    "email": "fernanda.almeida@example.com",
+    "data_nascimento": "2007-01-29",
+    "senha": "paulin123" 
+}
+
+### Mudar atributos no DB
+PUT http://localhost:3000/mudar-email
+Content-Type: application/json
+
+{
+    "nome": "Paulo Loraschi",
+    "email": "fernanda.almeida@example.com",
     "data_nascimento": "2007-01-29",
     "senha": "paulin123" 
 }
