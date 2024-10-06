@@ -21,6 +21,7 @@ async function login(req, res) {
     const user = result[0];
     if(await bc.compare(senha, user.senha)) {
         let payload = {
+            id: user.id,
             nome: user.nome,
             email: user.email,
             senha: user.senha
@@ -65,6 +66,7 @@ async function register(req, res) {
         }
     });
     let payload = {
+        id: id,
         nome: nome,
         email: email,
         senha: senha_hash
