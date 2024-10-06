@@ -40,24 +40,22 @@ async function login(req, res) {
 
 async function register(req, res) {
     const id = users.length + 1;
-    const nome = req.body.nome;
-    const email = req.body.email;
-    const data_nascimento = req.body.data_nascimento;
-    const senha_hash = await bc.hash(req.body.senha, randomInt(10, 16));
+    const { nome, email, data_nascimento, senha } = req.body;
+    const senha_hash = await bc.hash(senha, randomInt(10, 16));
     const cadastro = {
         id: id,
         nome: nome,
         email: email,
         data_nascimento: data_nascimento,
         senha: senha_hash
-    }
+    };
     users.push(cadastro);
     fs.writeFile('DB/users.json', JSON.stringify(users), (err) => {
         if(err) {
             res.status(506).send({erro: "banco de dados com falhas"});
             return ;
         }
-    })
+    });
     let payload = {
         nome: nome,
         email: email,
