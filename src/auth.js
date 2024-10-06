@@ -30,6 +30,7 @@ async function login(req, res) {
             expiresIn: '1h'
         });
         res.send({
+            msg: "login realizado com sucesso",
             token: token
         });
     } else {
@@ -41,7 +42,7 @@ async function login(req, res) {
 async function register(req, res) {
     const id = users.length + 1;
     const { nome, email, data_nascimento, senha } = req.body;
-    const ver_email = users.map((user) => {
+    const ver_email = users.filter((user) => {
         if(user.email == email) return user;
     });
     if(ver_email.length != 0) {
@@ -73,6 +74,7 @@ async function register(req, res) {
         expiresIn: '1h'
     });
     res.send({
+        msg: "cadastro realizado com sucesso",
         token: token
     });
 }
