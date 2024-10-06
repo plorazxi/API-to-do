@@ -30,7 +30,6 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "id": 10,
     "nome": "Paulo Loraschi",
     "email": "paulo.ss.loraschi@gmail.com",
     "data_nascimento": "2007-01-29",
