@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/login', (req, res) => login(req, res));
+app.post('/login', (req, res) => login(req, res));
 
 app.post('/register', (req, res) => register(req, res));
 
