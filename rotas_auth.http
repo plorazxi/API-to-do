@@ -3,8 +3,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "fernanda.almeida@example.com",
-    "senha": "fernanda123"
+    "email": "alice.silva@example.com",
+    "senha": "senha123"
 }
 
 ### Login com senha errada
