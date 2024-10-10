@@ -14,6 +14,8 @@ app.use(express.json());
 // Rotas principais : serviço to-do
 app.get('/:token', (req, res) => exibir(req, res));
 
+app.post('/create-task', (req, res) => criar(req, res));
+
 // Rotas de autenticacao
 app.post('/login', (req, res) => login(req, res));
 

@@ -1,3 +1,12 @@
 ### Função exibir
 GET http://localhost:3000/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFsaWNlIFNpbHZhIiwiZW1haWwiOiJhbGljZS5zaWx2YUBleGFtcGxlLmNvbSIsInNlbmhhIjoiJDJiJDExJEx0NGpqSUhRVTlzdUJBbTdQWnB3Yk9tZ24yUy5uWC43aE43MHpaWTNNcjh2TXFzb3pzZHRpIiwiaWF0IjoxNzI4NTg4OTIxLCJleHAiOjE3Mjg1OTI1MjF9.0zmJSTuFZMo92YeX5d76hYDWh_JpL2CD6S4FFXY2ugo
 
+### Função criar task
+POST http://localhost:3000/create-task
+Content-Type: application/json
+
+{
+    "titulo": "Progredir no projeto",
+    "subtitulo": "Dedicar 1 hora no projeto API-to-do",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFsaWNlIFNpbHZhIiwiZW1haWwiOiJhbGljZS5zaWx2YUBleGFtcGxlLmNvbSIsInNlbmhhIjoiJDJiJDExJEx0NGpqSUhRVTlzdUJBbTdQWnB3Yk9tZ24yUy5uWC43aE43MHpaWTNNcjh2TXFzb3pzZHRpIiwiaWF0IjoxNzI4NTg4OTIxLCJleHAiOjE3Mjg1OTI1MjF9.0zmJSTuFZMo92YeX5d76hYDWh_JpL2CD6S4FFXY2ugo"
+}
