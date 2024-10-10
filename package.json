@@ -6,6 +6,7 @@
     "start": "node src/main.js",
     "test": "nodemon src/main.js",
     "auth": "node src/auth.js",
+    "tasks": "node src/tasks.js",
     "cript": "nodemon src/test_de_cript.js"
   },
   "keywords": [],
