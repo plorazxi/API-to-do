@@ -1,9 +1,10 @@
 {
   "name": "api-to-do",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "scripts": {
-    "test": "nodemon src/index.js",
+    "start": "node src/main.js",
+    "test": "nodemon src/main.js",
     "auth": "node src/auth.js",
     "cript": "nodemon src/test_de_cript.js"
   },
