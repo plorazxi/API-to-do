@@ -16,6 +16,8 @@ app.get('/:token', (req, res) => exibir(req, res));
 
 app.post('/create-task', (req, res) => criar(req, res));
 
+app.delete('/delete', (req, res) => deletar(req, res));
+
 // Rotas de autenticacao
 app.post('/login', (req, res) => login(req, res));
 

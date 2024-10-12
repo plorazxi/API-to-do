@@ -63,7 +63,42 @@ function criar(req, res) {
     });
 }
 
+/**
+ * Função para deletar alguma task dentro do "Banco de dados"
+ * @param {Request} req - Request da rota
+ * @param {Response} res - Response da rota
+*/
+
 function deletar(req, res) {
+    const { id, token } = req.body;
+    const user = jwt.verify(token, process.env.SECRETKEY, (err, decoded) => {
+        if(err) {
+            res.status(401).send({msg: "Token inválido"});
+            return false;
+        } else return decoded;
+    });
+    if (user == false) return;
+    const result = tasks.filter((task) => {
+        if(task.id == id) return task;
+    });
+    if(result.length>1) { 
+        res.status(506).send({erro: "banco de dados com falhas"});
+        return ;
+    } else if(result.length==0) { 
+        res.status(400).send({erro: "id de task invalida"});
+        return ;
+    }
+    const task = result[0];
+    const index = tasks.indexOf(task);
+    tasks.splice(index);
+    fs.writeFile('DB/tarefas.json', JSON.stringify(tasks), (err) => {
+        if(err) {
+            res.status(506).send({msg: "banco de dados com falhas"});
+            return ;
+        } else {
+            res.send({msg: "tarefa excluida com sucesso"});
+        }
+    });
 }
 
 function alterar_task(req, res) {
