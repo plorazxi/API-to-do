@@ -89,6 +89,10 @@ function deletar(req, res) {
         return ;
     }
     const task = result[0];
+    if (task.id_dono != user.id) {
+        res.status(401).send({msg: "Usuário inválido"});
+        return ;
+    }
     const index = tasks.indexOf(task);
     tasks.splice(index);
     fs.writeFile('DB/tarefas.json', JSON.stringify(tasks), (err) => {
