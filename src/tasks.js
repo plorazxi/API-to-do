@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
+const { gerarID } = require('./gerarId');
 
 var tasks = JSON.parse(fs.readFileSync('DB/tarefas.json', 'utf-8'));
 
@@ -34,7 +35,7 @@ function exibir(req, res) {
 
 function criar(req, res) {
     const { token, titulo, subtitulo, data_criacao } = req.body;
-    const id = tasks.length + 1;
+    const id = gerarID(tasks);
     const user = jwt.verify(token, process.env.SECRETKEY, (err, decoded) => {
         if(err) {
             res.status(401).send({msg: "Token inválido"});

@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const bc = require('bcrypt');
 const { randomInt } = require('node:crypto');
 const fs = require('fs');
+const { gerarID } = require('./gerarId');
 
 // Cria um variavel com todas as informações do "Banco de dados"
 var users = JSON.parse(fs.readFileSync('DB/users.json', 'utf-8'));
@@ -48,7 +49,7 @@ async function login(req, res) {
 
 async function register(req, res) {
     // Gerando o id
-    const id = users.length + 1;
+    const id = gerarID(users);
     // Pegando os dados do corpo da requisição
     const { nome, email, data_nascimento, senha } = req.body;
     // Filtra os emails dos usuários : retorna uma lista
