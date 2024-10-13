@@ -7,6 +7,13 @@ const { gerarID } = require('./global_fct');
 // Cria um variavel com todas as informações do "Banco de dados"
 var users = JSON.parse(fs.readFileSync('DB/users.json', 'utf-8'));
 
+/**
+ * Função para a realização do login e produção do token
+ * @param {Request} req - Request da rota
+ * @param {Response} res - Reponse da rota
+ * @returns void
+*/
+
 async function login(req, res) {
     // Pegando o email e a senha enviada para realizar o login
     const { email, senha } = req.body;
@@ -46,6 +53,13 @@ async function login(req, res) {
         return ;
     }
 }
+
+/**
+ * Função para o registro, adicionar usuário no "banco de dados"
+ * @param {Request} req - Request da rota
+ * @param {Response} res - Response da rota
+ * @returns void
+*/
 
 async function register(req, res) {
     // Gerando o id
@@ -96,6 +110,13 @@ async function register(req, res) {
         token: token
     });
 }
+
+/**
+ * Função para modificar qualquer tributo no "banco de dados"
+ * @param {Request} req - Request da rota
+ * @param {Response} res - Response da rota
+ * @returns void
+ */
 
 async function mudar(req, res) {
     // Pegando os dados da requisição (tributo é o que vai mudar, do body são informações necessárias)
