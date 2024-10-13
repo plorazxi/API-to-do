@@ -16,6 +16,16 @@ DELETE http://localhost:3000/delete
 Content-Type: application/json
 
 {
+    "id": 9268,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5vbWUiOiJQYXVsbyBMb3Jhc2NoaSIsImVtYWlsIjoicGF1bG8uc3MubG9yYXNjaGlAZ21haWwuY29tIiwic2VuaGEiOiIkMmIkMTAkaXNVeHpSREhxRXlJcUFFQ2ZjNnluT0RqYmEzM2xDeS84ZnMxa3FwcW5vM25HSHhsT1E4RzIiLCJpYXQiOjE3Mjg2ODI2MDF9.GpDgGs9KhYCAFDHKY3cdeYgigE1tFh6tSx_l5inaOVI"
+}
+
+### Função alterar task
+PUT http://localhost:3000/tasks/mudar-titulo
+Content-Type: application/json
+
+{
     "id": 11,
+    "titulo": "Mudei pra qualquer um",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5vbWUiOiJQYXVsbyBMb3Jhc2NoaSIsImVtYWlsIjoicGF1bG8uc3MubG9yYXNjaGlAZ21haWwuY29tIiwic2VuaGEiOiIkMmIkMTAkaXNVeHpSREhxRXlJcUFFQ2ZjNnluT0RqYmEzM2xDeS84ZnMxa3FwcW5vM25HSHhsT1E4RzIiLCJpYXQiOjE3Mjg2ODI2MDF9.GpDgGs9KhYCAFDHKY3cdeYgigE1tFh6tSx_l5inaOVI"
 }

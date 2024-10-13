@@ -36,7 +36,7 @@ function criar(req, res) {
         titulo: titulo,
         subtitulo: subtitulo,
         data_criacao: data_criacao || Date.now(),
-        ja_feita: false
+        status: false
     };
     tasks.push(task);
     fs.writeFile('DB/tarefas.json', JSON.stringify(tasks), (err) => {
@@ -77,7 +77,38 @@ function deletar(req, res) {
     });
 }
 
+/**
+ * Função para alterar qualquer valor da tarefa
+ * @param {Request} req - Request da rota
+ * @param {Response} res - Reponse da rota
+*/
+
 function alterar_task(req, res) {
+    const { tributo } = req.params;
+    const { id, titulo, subtitulo, status, token } = req.body;
+    const user = ver_token(token, res);
+    if(!user) return;
+    const task = proc_task(tasks, id, res);
+    if(!task) return;
+    if(task.id_dono != user.id) {
+        res.status(401).send({msg: "Usuário inválido"});
+        return;
+    }
+    const index = tasks.indexOf(task);
+    if(tributo == 'titulo') tasks[index].titulo = titulo;
+    else if(tributo == 'subtitulo') tasks[index].subtitulo = subtitulo;
+    else if(tributp == 'status') tasks[index].status = status;
+    else {
+        res.status(400).send({msg: "tributo irreconhecível"});
+        return;
+    }
+    fs.writeFile('DB/tarefas.json', JSON.stringify(tasks), (err) => {
+        if(err) {
+            res.status(506).send({erro: "banco de dados com falhas"});
+            return;
+        }
+    });
+    res.send({msg: "Tarefa atualizada com sucesso"});
 }
 
 module.exports = { exibir, criar, deletar, alterar_task }

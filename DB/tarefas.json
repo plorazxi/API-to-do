@@ -5,7 +5,7 @@
         "titulo": "Estudar para a prova",
         "subtitulo": "Revisar matemática e português",
         "data_criacao": "2024-09-25",
-        "ja_feita": false
+        "status": false
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "titulo": "Comprar supermercado",
         "subtitulo": "Lista: leite, pão, frutas",
         "data_criacao": "2024-09-24",
-        "ja_feita": true
+        "status": true
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "titulo": "Exercício físico",
         "subtitulo": "30 minutos de corrida",
         "data_criacao": "2024-09-23",
-        "ja_feita": false
+        "status": false
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "titulo": "Limpar a casa",
         "subtitulo": "Organizar a sala e o quarto",
         "data_criacao": "2024-09-22",
-        "ja_feita": true
+        "status": true
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "titulo": "Reunião com a equipe",
         "subtitulo": "Discutir o projeto atual",
         "data_criacao": "2024-09-21",
-        "ja_feita": false
+        "status": false
     },
     {
         "id": 6,
@@ -45,7 +45,7 @@
         "titulo": "Assistir a um filme",
         "subtitulo": "Escolher um filme de comédia",
         "data_criacao": "2024-09-20",
-        "ja_feita": false
+        "status": false
     },
     {
         "id": 7,
@@ -53,7 +53,7 @@
         "titulo": "Ler um livro",
         "subtitulo": "Capítulo 5 de 'O Alquimista'",
         "data_criacao": "2024-09-19",
-        "ja_feita": true
+        "status": true
     },
     {
         "id": 8,
@@ -61,7 +61,7 @@
         "titulo": "Preparar o jantar",
         "subtitulo": "Receita de lasanha",
         "data_criacao": "2024-09-18",
-        "ja_feita": false
+        "status": false
     },
     {
         "id": 9,
@@ -69,7 +69,7 @@
         "titulo": "Estudar inglês",
         "subtitulo": "Praticar conversação",
         "data_criacao": "2024-09-17",
-        "ja_feita": false
+        "status": false
     },
     {
         "id": 10,
@@ -77,6 +77,14 @@
         "titulo": "Planejar viagem",
         "subtitulo": "Escolher destino e datas",
         "data_criacao": "2024-09-16",
-        "ja_feita": true
+        "status": true
+    },
+    {
+        "id": 11,
+        "id_dono": 11,
+        "titulo": "Mudei pra qualquer um",
+        "subtitulo": "Dedicar 1 hora no projeto API-to-do",
+        "data_criacao": 1728756952417,
+        "status": false
     }
 ]

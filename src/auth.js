@@ -138,7 +138,7 @@ async function mudar(req, res) {
         return ;
     }
     // Pegando o endereço do usuário na lista
-    const index = result[0].id - 1;
+    const index = users.indexOf(result[0]);
     // Fazendo a alteração na variavel users
     if(tributo == 'senha') {
         // Criando o hash da senha

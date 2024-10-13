@@ -67,6 +67,13 @@
         "nome": "Lucas Ferreira",
         "email": "lucas.ferreira@example.com",
         "data_nascimento": "1989-10-22",
-        "senha": "$2b$11$4TmOEc22FrtVCU96R38HQe.i2foergB9176rWJ9jwxEh/MPNr4FIu" 
+        "senha": "$2b$11$4TmOEc22FrtVCU96R38HQe.i2foergB9176rWJ9jwxEh/MPNr4FIu"
+    },
+    {
+        "id": 11,
+        "nome": "Paulo Loraschi",
+        "email": "paulo.loraschi@example.com",
+        "data_nascimento": "2007-01-29",
+        "senha": "$2b$10$isUxzRDHqEyIqAECfc6ynODjba33lCy/8fs1kqpqno3nGHxlOQ8G2"
     }
 ]

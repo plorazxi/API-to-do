@@ -31,7 +31,7 @@ Content-Type: application/json
 
 {
     "nome": "Paulo Loraschi",
-    "email": "paulo.ss.loraschi@gmail.com",
+    "email": "paulo.loraschi@example.com",
     "data_nascimento": "2007-01-29",
     "senha": "paulin123" 
 }
@@ -48,7 +48,7 @@ Content-Type: application/json
 }
 
 ### Mudar atributos no DB
-PUT http://localhost:3000/mudar-email
+PUT http://localhost:3000/users/mudar-email
 Content-Type: application/json
 
 {

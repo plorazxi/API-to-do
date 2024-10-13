@@ -18,12 +18,14 @@ app.post('/create-task', (req, res) => criar(req, res));
 
 app.delete('/delete', (req, res) => deletar(req, res));
 
+app.put('/tasks/mudar-:tributo', (req, res) => alterar_task(req, res));
+
 // Rotas de autenticacao
 app.post('/login', (req, res) => login(req, res));
 
 app.post('/register', (req, res) => register(req, res));
 
-app.put('/mudar-:tributo', (req, res) => mudar(req, res));
+app.put('/users/mudar-:tributo', (req, res) => mudar(req, res));
 
 // Listen
 app.listen(process.env.PORT || 3000, () => {

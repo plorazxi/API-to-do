@@ -12,7 +12,6 @@ function gerarID(DataBase) {
     const verify = DataBase.find((obj) => {
         return obj.id === id;
     });
-    console.log(verify);
     if(verify) return gerarID(DataBase);
     else return id;
 }
