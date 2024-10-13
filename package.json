@@ -7,7 +7,7 @@
     "test": "nodemon src/main.js",
     "auth": "node src/auth.js",
     "tasks": "node src/tasks.js",
-    "gerarID": "node src/gerarID.js",
+    "global_fct": "node src/global_fct.js",
     "cript": "nodemon src/test_de_cript.js"
   },
   "keywords": [],

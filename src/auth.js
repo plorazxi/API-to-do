@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const bc = require('bcrypt');
 const { randomInt } = require('node:crypto');
 const fs = require('fs');
-const { gerarID } = require('./gerarId');
+const { gerarID } = require('./global_fct');
 
 // Cria um variavel com todas as informações do "Banco de dados"
 var users = JSON.parse(fs.readFileSync('DB/users.json', 'utf-8'));
