@@ -1,0 +1,40 @@
+### Função de login
+# Precisa de um body com: email e senha
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "alice.silva@example.com",
+    "senha": "senha123"
+}
+
+### Função de cadastro
+# Precisa de um body com: nome, email (não utilizado ainda), data de nascimento e um senha
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "nome": "David Dantas",
+    "email": "david.dantas@example.com",
+    "data_nascimento": "2007-01-29",
+    "senha": "paulin123" 
+}
+
+### Função mudar tributos
+# Para mudar email:
+    # rota: /users/mudar-email | body: nome, data de nascimento, email novo e senha
+# Para mudar nome:
+    # rota: /users/mudar-nome | body: nome novo, email e senha
+# Para mudar data de nascimento:
+    # rota: /users/mudar-data_nascimento | body: data de nascimento nova, email e senha
+# Para mudar senha:
+    #rota: /users/mudar-senha | body: email, senha nova
+PUT http://localhost:3000/users/mudar-email
+Content-Type: application/json
+
+{
+    "nome": "Paulo Loraschi",
+    "email": "fernanda.almeida@example.com",
+    "data_nascimento": "2007-01-29",
+    "senha": "paulin123" 
+}
