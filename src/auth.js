@@ -118,18 +118,32 @@ async function mudar(req, res) {
     const index = users.indexOf(user);
     // Fazendo a alteração na variavel users
     if(tributo == 'senha') {
+        if(!senha) {
+            res.status(400).send({msg: "tributo não enviado no corpo da requisição"});
+            return ;
+        }
         // Criando o hash da senha
         let hash = await bc.hash(senha, randomInt(10, 16));
         users[index].senha = hash;
     } else if(tributo == 'email') {
+        if(!email) {
+            res.status(400).send({msg: "tributo não enviado no corpo da requisição"});
+            return ;
+        }
         if(ver_email(users, email)) {
             res.status(401).send({erro: "email sendo utilizado"});
             return ;
         } else users[index].email = email;
     } else if(tributo == 'data_nascimento') {
-        users[index].data_nascimento = data_nascimento;
+        if(!data_nascimento) {
+            res.status(400).send({msg: "tributo não enviado no corpo da requisição"});
+            return ;
+        } else users[index].data_nascimento = data_nascimento;
     } else if(tributo == 'nome') {
-        users[index].nome = nome;
+        if(!nome) {
+            res.status(400).send({msg: "tributo não enviado no corpo da requisição"});
+            return ;
+        } else users[index].nome = nome;
     } else { // Se o tributo não for um dado do objeto
         res.status(400).send({erro: "tributo irreconhecível"});
     }

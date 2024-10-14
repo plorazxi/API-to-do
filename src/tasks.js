@@ -104,9 +104,24 @@ function alterar_task(req, res) {
     }
     // Pega endereço da task e verifica um a um o tributo para alterar
     const index = tasks.indexOf(task);
-    if(tributo == 'titulo') tasks[index].titulo = titulo;
-    else if(tributo == 'subtitulo') tasks[index].subtitulo = subtitulo;
-    else if(tributo == 'status') tasks[index].status = status;
+    if(tributo == 'titulo') {
+        if(!titulo) {
+            res.status(400).send({msg: "tributo não enviado no corpo da requisição"});
+            return ;
+        } else tasks[index].titulo = titulo;
+    }
+    else if(tributo == 'subtitulo') {
+        if(!subtitulo) {
+            res.status(400).send({msg: "tributo não enviado no corpo da requisição"});
+            return ;
+        } else tasks[index].subtitulo = subtitulo;
+    }
+    else if(tributo == 'status') {
+        if(!status) {
+            res.status(400).send({msg: "tributo não enviado no corpo da requisição"});
+            return ;
+        } else tasks[index].status = status;
+    }
     else { // Caso o tributo não seja reconhecido
         res.status(400).send({msg: "tributo irreconhecível"});
         return;
