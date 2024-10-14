@@ -10,9 +10,11 @@ var tasks = JSON.parse(fs.readFileSync('DB/tarefas.json', 'utf-8'));
 */
 
 function exibir(req, res) {
+    // Pega e valida o token
     const { token } = req.params;
     const user = ver_token(token, res);
     if(!user) return;
+    // Cria lista com as tasks do user e as envia
     let own_tasks = tasks.filter((task) => {
         if(task.id_dono == user.id) return user;
     });
@@ -27,9 +29,11 @@ function exibir(req, res) {
 
 function criar(req, res) {
     const { token, titulo, subtitulo, data_criacao } = req.body;
+    // Gera ID e valida token
     const id = gerarID(tasks);
     const user = ver_token(token, res);
     if(!user) return;
+    // Cria um objeto task, insere em tasks e transcreve no arquivo json
     let task = {
         id: id,
         id_dono: user.id,
@@ -57,14 +61,17 @@ function criar(req, res) {
 
 function deletar(req, res) {
     const { id, token } = req.body;
+    // Valida token e procura task através do ID
     const user = ver_token(token, res);
     if(!user) return;
     const task = proc_task(tasks, id, res);
     if(!task) return;
+    // Verifica se o user é dono da task
     if (task.id_dono != user.id) {
         res.status(401).send({msg: "Usuário inválido"});
         return ;
     }
+    //Pega o endereço da task, exclui e reescreve o arquivo json
     const index = tasks.indexOf(task);
     tasks.splice(index);
     fs.writeFile('DB/tarefas.json', JSON.stringify(tasks), (err) => {
@@ -86,6 +93,7 @@ function deletar(req, res) {
 function alterar_task(req, res) {
     const { tributo } = req.params;
     const { id, titulo, subtitulo, status, token } = req.body;
+    // Valida token, procura task e verifica se o user é dono da task
     const user = ver_token(token, res);
     if(!user) return;
     const task = proc_task(tasks, id, res);
@@ -94,21 +102,22 @@ function alterar_task(req, res) {
         res.status(401).send({msg: "Usuário inválido"});
         return;
     }
+    // Pega endereço da task e verifica um a um o tributo para alterar
     const index = tasks.indexOf(task);
     if(tributo == 'titulo') tasks[index].titulo = titulo;
     else if(tributo == 'subtitulo') tasks[index].subtitulo = subtitulo;
-    else if(tributp == 'status') tasks[index].status = status;
-    else {
+    else if(tributo == 'status') tasks[index].status = status;
+    else { // Caso o tributo não seja reconhecido
         res.status(400).send({msg: "tributo irreconhecível"});
         return;
     }
+    // Reescreve no arquivo json
     fs.writeFile('DB/tarefas.json', JSON.stringify(tasks), (err) => {
         if(err) {
             res.status(506).send({erro: "banco de dados com falhas"});
             return;
-        }
+        } else res.send({msg: "Tarefa atualizada com sucesso"});
     });
-    res.send({msg: "Tarefa atualizada com sucesso"});
 }
 
 module.exports = { exibir, criar, deletar, alterar_task }
