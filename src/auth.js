@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const bc = require('bcrypt');
 const { randomInt } = require('node:crypto');
 const fs = require('fs');
-const { gerarID } = require('./global_fct');
+const { gerarID, ver_email, proc_user_byName, proc_user_byEmail } = require('./global_fct');
 
 // Cria um variavel com todas as informações do "Banco de dados"
 var users = JSON.parse(fs.readFileSync('DB/users.json', 'utf-8'));
@@ -17,19 +17,9 @@ var users = JSON.parse(fs.readFileSync('DB/users.json', 'utf-8'));
 async function login(req, res) {
     // Pegando o email e a senha enviada para realizar o login
     const { email, senha } = req.body;
-    // Filtra todos os usuários com o mesmo email : retorna uma lista
-    const result = users.filter((user) => {
-        if(user.email==email) return user;
-    });
-    if(result.length>1) { // Se tiver o mesmo email para mais usuários: (falha no banco de dados, não pode)
-        res.status(506).send({erro: "banco de dados com falhas"});
-        return ;
-    } else if(result.length==0) { // Se não encontrar um usuário cadastado com este email:
-        res.status(401).send({erro: "email invalido"});
-        return ;
-    }
-    // Criando o objeto usuário (era uma lista)
-    const user = result[0];
+    // Procurando o usuário pelo email
+    const user = proc_user_byEmail(users, email, res);
+    if(!user) return;
     if(await bc.compare(senha, user.senha)) { // Se a senha estiver correta
         // Criação do payload
         let payload = {
@@ -66,11 +56,8 @@ async function register(req, res) {
     const id = gerarID(users);
     // Pegando os dados do corpo da requisição
     const { nome, email, data_nascimento, senha } = req.body;
-    // Filtra os emails dos usuários : retorna uma lista
-    const ver_email = users.filter((user) => {
-        if(user.email == email) return user;
-    });
-    if(ver_email.length != 0) { // Se o email já estiver sendo utilizado
+    // Verifica se o email está sendo utilizado
+    if(ver_email(users, email)) {
         res.status(401).send({erro: "email sendo utilizado"});
         return ;
     }
@@ -116,45 +103,29 @@ async function register(req, res) {
  * @param {Request} req - Request da rota
  * @param {Response} res - Response da rota
  * @returns void
- */
+*/
 
 async function mudar(req, res) {
     // Pegando os dados da requisição (tributo é o que vai mudar, do body são informações necessárias)
     const { tributo } = req.params;
     const { nome, email, data_nascimento, senha } = req.body;
-    // Filtrando os usuario..
-    const result = users.filter((user) => {
-        if(tributo == 'email') { // Por nome e data de nascimento (caso ele deseje mudar o email)
-            if(user.nome == nome && user.data_nascimento == data_nascimento) return user;
-        } else { // Pelo email
-            if(user.email == email) return user;
-        }
-    });
-    if(result.length>1) { // Se encontrar mais de um usuário no BD
-        res.status(506).send({erro: "banco de dados com falhas"});
-        return ;
-    } else if(result.length==0) { // Se não encontrar o usuário
-        res.status(404).send({erro: "usuário não encontrado"});
-        return ;
-    }
+    let user;
+    // procurando usuário..
+    if(tributo == 'email') user = proc_user_byName(users, nome, data_nascimento, res);
+    else user = proc_user_byEmail(users, email, res);
+    if(!user) return ;
     // Pegando o endereço do usuário na lista
-    const index = users.indexOf(result[0]);
+    const index = users.indexOf(user);
     // Fazendo a alteração na variavel users
     if(tributo == 'senha') {
         // Criando o hash da senha
         let hash = await bc.hash(senha, randomInt(10, 16));
         users[index].senha = hash;
     } else if(tributo == 'email') {
-        // Verificando o se o email ja está sendo utilizado
-        const ver_email = users.filter((user) => {
-            if(user.email == email) return user;
-        });
-        if(ver_email.length != 0) {
+        if(ver_email(users, email)) {
             res.status(401).send({erro: "email sendo utilizado"});
             return ;
-        } else {
-            users[index].email = email;
-        }
+        } else users[index].email = email;
     } else if(tributo == 'data_nascimento') {
         users[index].data_nascimento = data_nascimento;
     } else if(tributo == 'nome') {
