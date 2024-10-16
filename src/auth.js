@@ -36,6 +36,7 @@ async function login(req, res) {
         // Retornando a assinatura com uma mensagem
         res.send({
             msg: "login realizado com sucesso",
+            nome: user.nome,
             token: token
         });
     } else { // Se a senha estiver incorreta
@@ -94,6 +95,7 @@ async function register(req, res) {
     // envia o token junto com uma mensagem
     res.send({
         msg: "cadastro realizado com sucesso",
+        nome: nome,
         token: token
     });
 }
