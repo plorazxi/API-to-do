@@ -16,7 +16,7 @@ app.get('/:token', (req, res) => exibir(req, res));
 
 app.post('/create-task', (req, res) => criar(req, res));
 
-app.delete('/delete', (req, res) => deletar(req, res));
+app.delete('/delete-task', (req, res) => deletar(req, res));
 
 app.put('/tasks/mudar-:tributo', (req, res) => alterar_task(req, res));
 

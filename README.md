@@ -34,7 +34,7 @@ Para mais informações, as rotas estão devidamente documentadas dentro da past
 POST http://localhost:3000/login
 ```
 
-Pede um body contendo um **email** e uma **senha**
+Pede um body contendo um **email** e uma **senha**.
 
 #### Para realizar um registro novo:
 
@@ -42,7 +42,10 @@ Pede um body contendo um **email** e uma **senha**
 POST http://localhost:3000/register
 ```
 
-Pede um body com: **nome**, **email**, **data de nascimento** e uma **senha**
+Pede um body com: **nome**, **email**, **data de nascimento** e uma **senha**.
+
+> O response dessas 2 rotas é uma **mensagem** e um **token**.
+Este token será necessário para fazer qualquer requisição das rotas principais.
 
 #### Realizar qualquer alteração no usuário:
 
@@ -50,9 +53,85 @@ Pede um body com: **nome**, **email**, **data de nascimento** e uma **senha**
 PUT http://localhost:3000/users/mudar-:tributo
 ```
 
-Pede, na url, o **tributo a ser mudado** e no body o **nome**, **data de nascimento**, **email** e **senha**
+Pede, na url, o **tributo a ser mudado** e no body o **nome**, **data de nascimento**, **email** e **senha**.
 
 ### Rotas de serviços principais:
 
+#### Pegar as tasks do usuários:
+
+```http
+GET http://localhost:3000/:token
+```
+
+Pede na url o **token do usuário**.
+
+#### Criar uma task:
+
+```http
+POST http://localhost:3000/create-task
+```
+
+Pede um body com um **titulo**, **subtitulo**, uma **data de criação** (`data_criação` | opcional) e o **token**.
+
+#### Deletar uma task:
+
+```http
+DELETE http://localhost:3000/delete-task
+```
+
+Pede um body com o **id da task** e o **token**.
+
+#### Modificar uma task: 
+
+```http
+PUT http://localhost:3000/tasks/mudar-:tributo
+```
+Pede o **tributo a ser modificado** na url e um body com o **id da task**, o **tributo a ser modificado** e o **token**.
+
 ## Testando o projeto
-Foram criadas diversas formas de testar este projeto:
+Foram criadas diversas formas de testar este projeto, dentre elas:
+
+### Render
+
+Este projeto está rodando em um servidor da Render.
+Para acessar, basta utilizar a seguinte url como BaseUrl: https://api-to-do-a5kr.onrender.com.
+
+>Obs.: Por ser um plano gratuito, as requisições tendem a demorar um tempo considerável.
+
+### Pages-For-API
+
+[Paulo Ávila](https://github.com/paulinbrgamer), um estudante de Engenharia de Software da Universidade Estadual do Pará, criou um front-end para esta aplicação.
+
+Segue o link do repositório: https://github.com/paulinbrgamer/Pages-For-API.
+
+Segue o link do Github Pages desse front-end: https://paulinbrgamer.github.io/Pages-For-API/.
+
+>Obs.: Por conta deste repositório usar o back-end pelo Render, as requisições tendem a demorar um tempo considerável também.
+
+### Clonando repositório
+
+Para rodar este projeto em sua máquina, primeiro, clone este repositório.
+
+```bash
+git clone https://github.com/plorazxi/API-to-do.git 
+```
+
+Instale as dependências.
+
+```bash
+npm ci
+```
+
+Em seguida, crie o arquivo `.env`, contendo uma porta para o servidor (`PORT`) e uma chave de criptografia para a criação do `JWT` (`SECRETKEY`).
+Para criar essa chave, basta rodar o seguinte comando: 
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+Agora, basta colocar o projeto para rodar.
+Para isso, coloque o seguinte comando.
+
+```bash
+npm run start
+```
