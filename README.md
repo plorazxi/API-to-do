@@ -91,12 +91,10 @@ Pede o **tributo a ser modificado** na url e um body com o **id da task**, o **t
 ## Testando o projeto
 Foram criadas diversas formas de testar este projeto, dentre elas:
 
-### Render
+### Railway
 
-Este projeto está rodando em um servidor da Render.
-Para acessar, basta utilizar a seguinte url como BaseUrl: https://api-to-do-a5kr.onrender.com.
-
->Obs.: Por ser um plano gratuito, as requisições tendem a demorar um tempo considerável.
+Este projeto está rodando em um servidor da Railway.
+Para acessar, basta utilizar a seguinte url como BaseUrl: https://api-to-do-production-253d.up.railway.app.
 
 ### Pages-For-API
 
@@ -105,8 +103,6 @@ Para acessar, basta utilizar a seguinte url como BaseUrl: https://api-to-do-a5kr
 Segue o link do repositório: https://github.com/paulinbrgamer/Pages-For-API.
 
 Segue o link do Github Pages desse front-end: https://paulinbrgamer.github.io/Pages-For-API/.
-
->Obs.: Por conta deste repositório usar o back-end pelo Render, as requisições tendem a demorar um tempo considerável também.
 
 ### Clonando repositório
 
